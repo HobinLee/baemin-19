@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+    <header class="header-layout">
+        <button class="close-btn">
+            <img src="./assets/icons/x.svg" alt="close-btn"/>
+        </button>
+        <h2 class="header-layout__title">회원가입</h2>
+    </header>
+    <main class="terms-page-layout">
+        <section class="intro-box">
+            <div class="intro-box__notify-block">
+                <span>어서오세요</span>
+                <span>약관동의가 필요해요</span>
+            </div>
+
+            <label class="checkbox-container check-all">
+                <input type="checkbox" id="check-all">
+                <label for="check-all">전체동의</label>
+                <span class="checkmark"></span>
+            </label>
+        </section>
+
+        <section class="terms-box">
+            <label class="checkbox-container">
+                <input type="checkbox" id="baemin-usage-terms">
+                <label for="baemin-usage-terms">배달의민족 이용약관 동의</label>
+                <span class="checkmark"></span>
+                <img src="assets/icons/left.svg">
+            </label>
+
+            <label class="checkbox-container" id="financial-term">
+                <input type="checkbox">
+                <label for="financial-term">전자금융거래 이용약관 동의</label>
+                <span class="checkmark"></span>
+                <img src="assets/icons/left.svg">
+            </label>
+
+            <label class="checkbox-container">
+                <input type="checkbox" id="personal-info-collect-term">
+                <label for="personal-info-collect-term">개인정보 수집이용 동의</label>
+                <span class="checkmark"></span>
+                <img src="assets/icons/left.svg">
+            </label>
+
+            <label class="checkbox-container">
+                <input type="checkbox" id="personal-info-provide-term">
+                <label for="personal-info-provide-term">개인정보 제3자 제공 동의 (선택)</label>
+                <span class="checkmark"></span>
+                <img src="assets/icons/left.svg">
+            </label>
+
+            <label class="checkbox-container">
+                <input type="checkbox" id="marketing-term">
+                <label for="marketing-term">마케팅 정보 메일, SMS 수신동의 (선택)</label>
+                <span class="checkmark"></span>
+            </label>
+        </section>
+
+        <section class="age-check-box">
+            <p>
+                <label class="radio-container">
+                    <input type="radio" id="over-14">
+                    <label for="over-14">만 14세 이상입니다.</label>
+                    <span class="checkmark"></span>
+                </label>
+            </p>
+
+            <p>
+                <label class="radio-container">
+                    <input type="radio" id="under-14">
+                    <label for="under-14">만 14세 미만입니다.</label>
+                    <span class="checkmark"></span>
+                </label>
+            </p>
+        </section>
+
+        <button class="woowa-btn next-btn" disabled>다음으로</button>
+    </main>
+</body>
+</html>
