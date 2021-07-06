@@ -4,25 +4,25 @@ header {
 }
 
 .header-layout {
-    padding-top:40px;
-    position:relative;
-    display:flex;
+    padding: 30px 0px 10px;
+    position: relative;
+    display: flex;
     align-items: center;
     justify-content: center;
-    height:fit-content;
+    height: fit-content;
 }
 
 .close-btn{
-    position:absolute;
-    left:0;
+    position: absolute;
+    left: 0;
 }
 
 .header-layout__title{
-    font-weight:bold;
-    height:100%;
+    font-weight: bold;
+    height: 100%;
 }
 
 .header-layout__next, .header-layout__complete{
-    position:absolute;
-    right:0;
+    position: absolute;
+    right: 0;
 }
