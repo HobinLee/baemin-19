@@ -1,0 +1,18 @@
+.phone-page-layout{
+    position: relative;
+    height:100%;
+}
+
+.certificate-section {
+    position:relative;
+    margin-top:40px;
+    text-align:right;
+}
+
+.certificate-section > button {
+    display:none;
+}
+
+.certificate-section > span {
+    color:var(--concept-color);
+}
