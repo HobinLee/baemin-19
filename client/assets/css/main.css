@@ -1,0 +1,133 @@
+body {
+	padding: 0px;
+	background-color: var(--light-gray-color);
+}
+header {
+	background-color: #fff;
+}
+
+.main-section {
+	margin-bottom: 20px;
+}
+
+.main-menu {
+	width: 100%;
+	display: flex;
+	flex-wrap: wrap;
+}
+
+.main-menu__item {
+	background-color: white;
+	flex: 1 0 33%;
+	padding: 10px 0px;
+	box-sizing: border-box;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	color: #999;
+	font-size: 12px;
+	font-weight: bold;
+	border-top: 1px solid var(--light-gray-color);
+	border-right: 1px solid var(--light-gray-color);
+	cursor: pointer;
+}
+
+.main-banner {
+	height: 140px;
+	background-color: var(--light-gray-color);
+	cursor: pointer;
+}
+
+.main-menu__item:nth-child(3) {
+	border-right: none;
+}
+
+.main-menu__item:nth-child(6) {
+	border-right: none;
+}
+
+.main-menu__item > img {
+	width: 45px;
+	transition: 0.5s;
+}
+
+.main-menu__item:hover > img {
+	transform: scale(1.1);
+}
+
+.main-menu__item > span {
+	z-index: 1;
+}
+
+.campaign-section {
+	color: green;
+}
+
+.main-btn {
+	background-color: #fff;
+	box-sizing: border-box;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+	border-top: 1px solid var(--light-gray-color);
+	height: 80px;
+	padding: 20px;
+	justify-content: center;
+	cursor: pointer;
+	transition: 0.5s;
+}
+
+.main-btn:hover {
+	opacity: 0.8;
+}
+
+.main-btn__title {
+	font-size: 18px;
+	margin: 5px 0px;
+}
+
+.main-btn__brief {
+	font-size: 14px;
+	color: #999;
+}
+
+.main-btn__icon, .login-btn__icon {
+	width: 24px;
+	height: 24px;
+	position: absolute;
+	top: calc(50% - 12px);
+	opacity: 0.3;
+	right: 12px;
+}
+
+.login-btn {
+	position: relative;
+	box-sizing: border-box;
+	height: 80px;
+	padding: 20px;
+	background-color: #fff;
+	display: flex;
+	flex-direction: row;
+	align-items: center;
+	justify-content: flex-start;
+
+	cursor: pointer;
+}
+
+.login-btn__title {
+	font-size: 20px;
+	font-weight: normal;
+	color: #999;
+	margin: 0px 10px;
+}
+
+.login-btn:hover .login-btn__user {
+	transform: scale(1.1);
+}
+
+.login-btn__user {
+	width: 60px;
+	height: 60px;
+	transition: 0.3s;
+}
