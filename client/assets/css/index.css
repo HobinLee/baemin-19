@@ -1,0 +1,51 @@
+@import './reset.css';
+
+:root {
+    --background-color: #fff;
+    --concept-color: #2AC1BC;
+    --font-size: 14px;
+    --light-gray-color: #999;
+}
+html {
+    background-color: #eee;
+    font-size: var(--font-size);
+}
+
+header {
+    width: 100%;
+    height: 50px;
+}
+
+.close-btn {
+    margin-top: 10px;
+}
+
+body {
+    box-sizing: border-box;
+    background-color: var(--background-color);
+    width: 100%;
+    height: var(--vh, 100vh);
+    max-width: 420px;
+    margin: 0 auto;
+    padding: 0 20px;
+    box-shadow: #ddd 2px 2px 20px;
+}
+
+.woowa-btn {
+    width: 100%;
+    height: 60px;
+    text-align: center;
+    color: var(--light-gray-color);
+    border: 1px solid var(--light-gray-color);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.woowa-input {
+    border-bottom: 1px solid #999;
+    padding: 10px 0px;
+}
+
+::placeholder {
+    color: var(--light-gray-color);
+}
