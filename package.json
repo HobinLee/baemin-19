@@ -1,0 +1,19 @@
+{
+  "name": "baemin-19",
+  "version": "1.0.0",
+  "description": "Application for login and signup service on baemin-web-page",
+  "main": "index.js",
+  "repository": "https://github.com/woowa-techcamp-2021/baemin-19",
+  "author": "jonghopark95 <jong951005@gmail.com>",
+  "license": "MIT",
+  "scripts": {
+    "dev": "nodemon --watch server/ server/index.js"
+  },
+  "dependencies": {
+    "express": "^4.17.1"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.9",
+    "pug": "^3.0.2"
+  }
+}
