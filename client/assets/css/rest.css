@@ -1,0 +1,9 @@
+.submit-signup-form-btn {
+    margin-top:50px;
+    color:#fff;
+    background-color:var(--concept-color);
+}
+
+.submit-signup-form-btn:disabled{
+    background-color:var(--light-gray-color);
+}

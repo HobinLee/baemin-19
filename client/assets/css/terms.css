@@ -1,0 +1,47 @@
+.terms-page-layout{
+    position: relative;
+    height:100%;
+}
+
+.intro-box{
+    margin-top:50px;
+    border-bottom : 1px solid var(--light-gray-color);
+}
+
+.intro-box__notify-block{
+    display:block;
+    line-height:1.2;
+    font-weight:bold;
+    font-size:20px;
+}
+
+.intro-box__notify-block > span {
+    display:block;
+}
+
+.intro-box .checkbox-container{
+    margin-top:40px;
+}
+
+.intro-box__check-all {
+    font-weight:bold;
+}
+
+.check-all > label{
+    font-weight:bold;
+}
+
+.terms-box{
+    margin: 20px 0;
+    border-bottom : 1px solid var(--light-gray-color);
+}
+
+.next-btn {
+    color:#fff !important;
+    background-color:var(--light-gray-color);
+    font-weight:bold;
+}
+
+.age-check-box{
+    margin-bottom:100px;
+}
