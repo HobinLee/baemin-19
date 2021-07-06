@@ -1,7 +1,4 @@
 @import './reset.css';
-@import "./login.css";
-@import "./terms.css";
-@import "./phone.css";
 @import "./component/checkbox.css";
 @import "./component/radio.css";
 @import "./component/header.css";
@@ -11,7 +8,7 @@
     --background-color: #fff;
     --concept-color: #2AC1BC;
     --font-size: 14px;
-    --light-gray-color: #999;
+    --light-gray-color: rgb(225, 223, 223);
     --warn-color:rgb(249, 24, 24);
 }
 html {
