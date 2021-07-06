@@ -25,4 +25,5 @@ _thumbs/
 
 node_modules
 
+yarn-error.log
 # End of https://www.toptal.com/developers/gitignore/api/expressionengine
