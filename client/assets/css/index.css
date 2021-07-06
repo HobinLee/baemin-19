@@ -1,24 +1,24 @@
 @import './reset.css';
+@import "./login.css";
+@import "./terms.css";
+@import "./phone.css";
+@import "./component/checkbox.css";
+@import "./component/radio.css";
+@import "./component/header.css";
+@import "./component/form_element.css";
 
 :root {
     --background-color: #fff;
     --concept-color: #2AC1BC;
     --font-size: 14px;
     --light-gray-color: #999;
+    --warn-color:rgb(249, 24, 24);
 }
 html {
     background-color: #eee;
     font-size: var(--font-size);
 }
 
-header {
-    width: 100%;
-    height: 50px;
-}
-
-.close-btn {
-    margin-top: 10px;
-}
 
 body {
     box-sizing: border-box;

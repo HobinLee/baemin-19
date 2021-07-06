@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="./assets/css/index.css">
+</head>
+<body>
+    <header class="header-layout">
+        <button class="close-btn">
+            <img src="./assets/icons/x.svg" alt="close-btn"/>
+        </button>
+        <h2 class="header-layout__title">회원가입</h2>
+        <span class="header-layout__next">완료</span>
+    </header>
+    <main class="phone-page-layout">
+        <div class="form-element">
+            <label for="phone-no">이메일</label>
+            <img src="./assets/icons/x.svg" alt="close-btn" class="form-element__erase"/>
+            <img src="./assets/icons/check.svg" alt="close-btn" class="form-element__check"/>
+            <input type="email" id="phone-no" class="woowa-input" placeholder="이메일을 입력해주세요"></input>
+        </div>
+
+        <div class="form-element">
+            <label for="certificate-no">닉네임</label>
+            <img src="./assets/icons/check.svg" alt="close-btn" class="form-element__check"/>
+            <input type="text" id="certificate-no" class="woowa-input" placeholder="닉네임을 입력해주세요"></input>
+        </div>
+
+        <div class="form-element">
+            <label for="certificate-no">비밀번호</label>
+            <img src="./assets/icons/check.svg" alt="close-btn" class="form-element__check--invalid"/>
+            <input type="password" id="certificate-no" class="woowa-input warn" placeholder="비밀번호를 입력해주세요"></input>
+            <small>10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다.</small>
+        </div>
+
+        <div class="form-element">
+            <label for="certificate-no">생년월일</label>
+            <input type="date" id="certificate-no" class="woowa-input" required></input>
+        </div>
+    </main>
+</body>
+</html>
