@@ -1,13 +1,25 @@
+.login-page-layout {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: column;
+}
+
 .login-form {
     display: flex;
     flex-direction: column;
     gap: 30px;
 }
 
-.login-page-layout {
-    margin-top: 100px;
-    display: flex;
-    flex-direction: column;
+.login-form__container{
+    display:flex;
+    flex-direction:column;
+    height:66px;
+}
+
+.login-form__container > small {
+    margin-top:15px;
+    font-size:11px;
+    color:var(--warn-color);
 }
 
 .login-form__submit-btn {
@@ -15,9 +27,22 @@
     background-color: var(--concept-color);
 }
 
+.login-form__submit-btn:disabled {
+    background-color:var(--light-gray-color);
+    color:#fff !important;
+    font-weight:bold;
+    cursor:default;
+}
+
+.invalid-form{
+    border-bottom: 1px solid var(--warn-color);
+}
+
 .signup-btn {
     margin-top: 20px;
 }
+
+
 
 .logo{
     margin: 0 auto;
