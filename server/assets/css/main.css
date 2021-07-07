@@ -99,6 +99,7 @@ header {
 	top: calc(50% - 12px);
 	opacity: 0.3;
 	right: 12px;
+	transform: rotate(180deg);
 }
 
 .login-btn {
