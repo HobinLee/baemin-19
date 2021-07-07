@@ -7,21 +7,22 @@
   <title>배민 로그인</title>
   <link rel="stylesheet" href="./assets/css/index.css">
   <link rel="stylesheet" href="./assets/css/main.css">
+  <script src="./assets/js/index.js" defer></script>
 </head>
 <body>
   <header class="header-layout">
-      <div class="header-layout__title">My 배민</div>
+    <div class="header-layout__title">My 배민</div>
   </header>
   <main class="main-page-layout">
     <section class="main-section">
-      <div class="main-banner"></div>
+      <figure class="main-banner"></figure>
       <a class="login-btn">
         <img class="login-btn__user" src="./assets/icons/user.png" alt="user_icon"/> 
         <div class="login-btn__title">로그인 해주세요</div>
         <img class="login-btn__icon" style="transform: rotate(180deg)" src="./assets/icons/left.svg" alt="right_icon"/>
       </a>
       <nav class="main-menu-layout">
-        <ul class="main-menu">
+        <div class="main-menu">
           <a class="main-menu__item">
             <img src="./assets/icons/point.png" alt="point_icon"/>
             <span>포인트</span>
@@ -46,7 +47,7 @@
             <img src="./assets/icons/review.png" alt="review_icon"/>
             <span>리뷰관리</span>
           </a>
-        </ul>
+        </div>
       </nav>
     </section>
     <section class="main-section campaign-section">
@@ -76,6 +77,5 @@
       </a>
     </section>
   </main>
-  <script src="./assets/js/index.js"></script>
 </body>
 </html>
