@@ -8,8 +8,9 @@ head
   link(rel='stylesheet' href='assets/css/login.css')
   script(src='../assets/js/index.js' defer='')
 header.header-layout
-  button.close-btn
-    img(src='./assets/icons/x.svg' alt='close-btn')
+  a(href="/").close-btn-wrapper
+    button.close-btn
+      img(src='../assets/icons/x.svg' alt='close-btn')
 main.login-page-layout
   figure.logo 
     img.logo-img(src="assets/icons/logo.png" alt="logo")

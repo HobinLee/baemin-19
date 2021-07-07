@@ -8,8 +8,9 @@ head
   link(rel='stylesheet' href='../assets/css/terms.css')
   script(type="module" src="../assets/js/signup.js" defer) 
 header.header-layout
-  button.close-btn
-    img(src='../assets/icons/x.svg' alt='close-btn')
+  a(href="/login").close-btn-wrapper
+    button.close-btn
+      img(src='../assets/icons/x.svg' alt='close-btn')
   h2.header-layout__title 회원가입
 main.terms-page-layout
   section.intro-box
