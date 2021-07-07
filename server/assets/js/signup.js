@@ -16,10 +16,10 @@ const DEFAULT_TERM_STATE = {
       over14: true,
     };
 
-    const setState = (newState) => {
+    const setState = (nextState) => {
       state = {
         ...state,
-        ...newState,
+        ...nextState,
       };
 
       render();
