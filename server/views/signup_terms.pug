@@ -1,0 +1,58 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='../assets/css/index.css')
+  link(rel='stylesheet' href='../assets/css/terms.css')
+header.header-layout
+  button.close-btn
+    img(src='../assets/icons/x.svg' alt='close-btn')
+  h2.header-layout__title 회원가입
+main.terms-page-layout
+  section.intro-box
+    .intro-box__notify-block
+      span 어서오세요
+      span 약관동의가 필요해요
+    label.checkbox-container.check-all
+      input#check-all(type='checkbox')
+      label(for='check-all') 전체동의
+      span.checkmark
+  section.terms-box
+    label.checkbox-container
+      input#baemin-usage-terms(type='checkbox')
+      label(for='baemin-usage-terms') 배달의민족 이용약관 동의
+      span.checkmark
+      img(src='../assets/icons/left.svg')
+    label#financial-term.checkbox-container
+      input(type='checkbox')
+      label(for='financial-term') 전자금융거래 이용약관 동의
+      span.checkmark
+      img(src='../assets/icons/left.svg')
+    label.checkbox-container
+      input#personal-info-collect-term(type='checkbox')
+      label(for='personal-info-collect-term') 개인정보 수집이용 동의
+      span.checkmark
+      img(src='../assets/icons/left.svg')
+    label.checkbox-container
+      input#personal-info-provide-term(type='checkbox')
+      label(for='personal-info-provide-term') 개인정보 제3자 제공 동의 (선택)
+      span.checkmark
+      img(src='../assets/icons/left.svg')
+    label.checkbox-container
+      input#marketing-term(type='checkbox')
+      label(for='marketing-term') 마케팅 정보 메일, SMS 수신동의 (선택)
+      span.checkmark
+  section.age-check-box
+    p
+      label.radio-container
+        input#over-14(type='radio')
+        label(for='over-14') 만 14세 이상입니다.
+        span.checkmark
+    p
+      label.radio-container
+        input#under-14(type='radio')
+        label(for='under-14') 만 14세 미만입니다.
+        span.checkmark
+  button.woowa-btn.next-btn(disabled='') 다음으로

@@ -1,0 +1,25 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=title
+  link(rel='stylesheet' href='../assets/css/index.css')
+  link(rel='stylesheet' href='../assets/css/phone.css')
+header.header-layout
+  button.close-btn
+    img(src='../assets/icons/x.svg' alt='close-btn')
+  h2.header-layout__title 회원가입
+  span.header-layout__next 다음
+main.phone-page-layout
+  .form-element
+    label(for='phone-no') 휴대전화
+    img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
+    img.form-element__check(src='../assets/icons/check.svg' alt='check-btn')
+    input#phone-no.woowa-input(type='tel' placeholder='휴대폰 번호를 입력해주세요')
+  .form-element
+    label(for='certificate-no') 인증번호
+    input#certificate-no.woowa-input(type='number' placeholder='휴대폰 번호를 입력해주세요')
+  section.certificate-section
+    button.woowa-btn.certificate-section__fetch-btn(disabled='') 인증번호 받기
+    span.certificate-section__fetch-again 인증번호 다시받기

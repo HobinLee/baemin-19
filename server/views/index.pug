@@ -1,5 +1,57 @@
-html
-    head
-        title= title 
-    body 
-        h1= message
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title=title
+  link(rel='stylesheet' href='../assets/css/index.css')
+  link(rel='stylesheet' href='../assets/css/main.css')
+  script(src='../assets/js/index.js' defer='')
+header.header-layout
+  .header-layout__title My 배민
+main.main-page-layout
+  section.main-section
+    figure.main-banner
+    a.login-btn
+      img.login-btn__user(src='assets/icons/user.png' alt='user_icon')
+      .login-btn__title 로그인 해주세요
+      img.login-btn__icon(src='assets/icons/left.svg' alt='right_icon')
+    nav.main-menu-layout
+      .main-menu
+        a.main-menu__item
+          img(src='assets/icons/point.png' alt='point_icon')
+          span 포인트
+        a.main-menu__item
+          img(src='assets/icons/coupon.png' alt='coupon_icon')
+          span 쿠폰함
+        a.main-menu__item
+          img(src='assets/icons/gift.png' alt='gift_icon')
+          span 선물함
+        a.main-menu__item
+          img(src='assets/icons/like.png' alt='like_icon')
+          span 찜
+        a.main-menu__item
+          img(src='assets/icons/order.png' alt='order_icon')
+          span 주문내역
+        a.main-menu__item
+          img(src='assets/icons/review.png' alt='review_icon')
+          span 리뷰관리
+  section.main-section.campaign-section
+    a.main-btn
+      .main-btn__title 일회용품 덜 쓰기, 함께해요!
+      img.main-btn__icon(src='assets/icons/left.svg' alt='right_icon')
+  section.main-section
+    a.main-btn
+      .main-btn__title 배민페이 등록
+      .main-btn__brief 배민페이로 결제하면 최대 5.5% 배민포인트가 적립됩니다!
+      img.main-btn__icon(src='assets/icons/left.svg' alt='right_icon')
+    a.main-btn
+      .main-btn__title 가족계정 관리
+      .main-btn__brief 결제수단을 공유해 우리 가족의 끼니를 챙겨주세요.
+      img.main-btn__icon(src='assets/icons/left.svg' alt='right_icon')
+    a.main-btn
+      .main-btn__title 공지사항
+      img.main-btn__icon(src='assets/icons/left.svg' alt='right_icon')
+    a.main-btn
+      .main-btn__title 배민커넥트 지원
+      img.main-btn__icon(src='assets/icons/left.svg' alt='right_icon')

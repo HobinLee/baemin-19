@@ -1,0 +1,37 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title Document
+  link(rel='stylesheet' href='../assets/css/index.css')
+  link(rel='stylesheet' href='../assets/css/rest.css')
+header.header-layout
+  button.close-btn
+    img(src='../assets/icons/x.svg' alt='close-btn')
+  h2.header-layout__title 회원가입
+  // <span class="header-layout__next">완료</span>
+main.phone-page-layout
+  .form-element
+    label(for='email') 이메일
+    img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
+    img.form-element__check(src='../assets/icons/check.svg' alt='close-btn')
+    input#email.woowa-input(type='email' placeholder='이메일을 입력해주세요')
+  .form-element
+    label(for='nickname') 닉네임
+    img.form-element__check(src='../assets/icons/check.svg' alt='close-btn')
+    input#nickname.woowa-input(type='text' placeholder='닉네임을 입력해주세요')
+  .form-element
+    label(for='password') 비밀번호
+    img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
+    input#password.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
+    small 10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다.
+  .form-element
+    label(for='password-check') 비밀번호 확인
+    img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
+    input#password-check.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
+    small 10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다.
+  .form-element
+    label(for='birth-date') 생년월일
+    input#birth-date.woowa-input(type='date' required='')
+  button.woowa-btn.submit-signup-form-btn(disabled='') 완료

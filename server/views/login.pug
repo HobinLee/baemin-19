@@ -1,0 +1,18 @@
+doctype html
+head
+  meta(charset='UTF-8')
+  meta(http-equiv='X-UA-Compatible' content='IE=edge')
+  meta(name='viewport' content='width=device-width, initial-scale=1.0')
+  title 배민 로그인
+  link(rel='stylesheet' href='assets/css/index.css')
+  link(rel='stylesheet' href='assets/css/login.css')
+  script(src='../assets/js/index.js' defer='')
+header.header-layout
+  button.close-btn
+    img(src='./assets/icons/x.svg' alt='close-btn')
+main.login-page-layout
+  form.login-form
+    input.woowa-input.login-form__id(placeholder='아이디를 입력해주세요')
+    input.woowa-input.login-form__pw(type='password' placeholder='비밀번호를 입력해주세요')
+    input.woowa-btn.login-form__submit-btn(type='submit' value='로그인')
+  button.woowa-btn.signup-btn(disabled='') 회원가입
