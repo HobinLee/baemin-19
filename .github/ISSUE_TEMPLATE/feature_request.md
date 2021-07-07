@@ -2,8 +2,8 @@
 name: Feature Request
 about: 추가해야 할 기능 제안
 title: ''
-labels: 'feature'
-assignees: 'jonghopark95', 'HobinLee'
+labels: feature
+assignees: HobinLee, jonghopark95
 
 ---
 
