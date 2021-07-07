@@ -104,7 +104,15 @@ const DEFAULT_TERM_STATE = {
       $("#under-14").checked = !over14;
 
       // Render validation
-      $(".next-btn").disabled = !termState["check-all"];
+      if (
+        termState["baemin-usage-term"] &&
+        termState["financial-term"] &&
+        termState["personal-info-collect-term"]
+      ) {
+        $(".next-btn").disabled = false;
+      } else {
+        $(".next-btn").disabled = true;
+      }
     };
 
     bindEvents();
