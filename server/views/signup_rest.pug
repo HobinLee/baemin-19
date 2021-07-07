@@ -6,32 +6,41 @@ head
   title Document
   link(rel='stylesheet' href='../assets/css/index.css')
   link(rel='stylesheet' href='../assets/css/rest.css')
+  script(src='../assets/js/rest.js' type='module' defer='')
 header.header-layout
-  button.close-btn
-    img(src='../assets/icons/x.svg' alt='close-btn')
+  a.close-btn(href='/signup/phone')
+    img(src='../assets/icons/left.svg' alt='close-btn')
   h2.header-layout__title 회원가입
   // <span class="header-layout__next">완료</span>
 main.phone-page-layout
-  .form-element
+  .form-element.email-form
     label(for='email') 이메일
     img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
-    img.form-element__check(src='../assets/icons/check.svg' alt='close-btn')
+    img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
     input#email.woowa-input(type='email' placeholder='이메일을 입력해주세요')
+    button.check-email-btn(disabled='') 중복확인
+    small 올바르지 않은 이메일 형식입니다
   .form-element
     label(for='nickname') 닉네임
-    img.form-element__check(src='../assets/icons/check.svg' alt='close-btn')
+    img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
+    img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
     input#nickname.woowa-input(type='text' placeholder='닉네임을 입력해주세요')
+    small 닉네임의 길이는 2글자 이상 10글자 이하로 작성해주세요
   .form-element
     label(for='password') 비밀번호
+    img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
     img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
     input#password.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
-    small 10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다.
+    small#password-warn 10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다
   .form-element
     label(for='password-check') 비밀번호 확인
+    img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
     img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
     input#password-check.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
-    small 10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다.
+    small 입력하신 비밀번호가 서로 다릅니다
   .form-element
     label(for='birth-date') 생년월일
+    img.form-element__check--invalid(src='../assets/icons/check.svg' alt='check-btn')
     input#birth-date.woowa-input(type='date' required='')
+    small 생년월일이 올바르지 않습니다
   button.woowa-btn.submit-signup-form-btn(disabled='') 완료
