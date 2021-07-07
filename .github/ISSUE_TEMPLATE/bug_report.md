@@ -1,26 +1,10 @@
 ---
-name: Bug report
-about: Create a report to help us improve
+name: Bug Report
+about: 버그 제보
 title: ''
 labels: bug
 assignees: HobinLee, jonghopark95
 
----
-
----
-name: bug request
-about: 버그 제보
-title: ''
-labels: ''
-assignees: ''
-
----
-
----
-name: bug request
-about: 버그 제보
-title: ""
-labels: ""
 ---
 
 ## ⚠️ 버그 설명

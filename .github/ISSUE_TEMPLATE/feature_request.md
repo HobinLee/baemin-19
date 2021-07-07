@@ -1,26 +1,10 @@
 ---
-name: Feature request
-about: Suggest an idea for this project
-title: ''
-labels: enhancement
-assignees: ''
-
----
-
----
-name: feature request
+name: Feature Request
 about: 추가해야 할 기능 제안
 title: ''
 labels: ''
 assignees: ''
 
----
-
----
-name: feature request
-about: 기능 제안
-title: ""
-labels: ""
 ---
 
 ## :hammer: 기능 설명
