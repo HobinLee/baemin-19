@@ -1,5 +1,6 @@
 const express = require('express');
 const fs = require("fs");
+const crypto = require('crypto');
 
 const DB = require('../db/db.json');
 const signupRouter = express.Router();
@@ -18,12 +19,14 @@ signupRouter.get("/rest", (req, res) => {
 
 signupRouter.post("/", (req, res) => {
   const {email, pw, ...rest} = req.body.userData;
-
+  
+  const hashedPW = crypto.createHash('sha512').update(pw).digest('base64');
+  
   req.session.user = req.body.userData;
   
   const copiedDB = {...DB};
 
-  copiedDB[email] = { ...rest, pw };
+  copiedDB[email] = { ...rest, pw: hashedPW };
 
   fs.writeFileSync('server/db/db.json', JSON.stringify(copiedDB));
   
