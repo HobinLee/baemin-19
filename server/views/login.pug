@@ -10,7 +10,7 @@ head
 header.header-layout
   a(href="/").close-btn-wrapper
     button.close-btn
-      img(src='../assets/icons/x.svg' alt='close-btn')
+      img(src="assets/icons/x.svg" alt="close-btn")
 main.login-page-layout
   figure.logo 
     img.logo-img(src="assets/icons/logo.png" alt="logo")
@@ -21,6 +21,9 @@ main.login-page-layout
     div.login-form__container
       input.woowa-input.login-form__pw(type='password' placeholder='비밀번호를 입력해주세요' disabled=false)
       small.login-form__container--pw-error-msg 
-    input.woowa-btn.login-form__submit-btn(type='submit' value='로그인')
+    button.woowa-btn.login-form__submit-btn
+      span.login-form__btn-value 로그인
+      div#spinner.login-form__btn-spinner
+        img(src="assets/icons/spinner.png" alt="spinner-img")
   a(href="/signup/terms")
     button.woowa-btn.signup-btn 회원가입  
