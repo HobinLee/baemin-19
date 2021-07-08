@@ -4,15 +4,15 @@ import {
 } from "./utils/checkValidation.js";
 import { $ } from "./utils/selector.js";
 
-const ERROR_STATE = {
-  EMPTY_EMAIL: "이메일 또는 아이디를 입력해주세요.",
-  EMPTY_PASSWORD: "비밀번호를 입력해주세요.",
-  INVALID_EMAIL_FORM: "이메일 형식이 올바르지 않습니다.",
-  INVALID_PASSWORD_FORM:
-    "10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다.",
-};
-
 (function () {
+  const ERROR_STATE = {
+    EMPTY_EMAIL: "이메일 또는 아이디를 입력해주세요.",
+    EMPTY_PASSWORD: "비밀번호를 입력해주세요.",
+    INVALID_EMAIL_FORM: "이메일 형식이 올바르지 않습니다.",
+    INVALID_PASSWORD_FORM:
+      "10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다.",
+  };
+
   const login = () => {
     let state = {
       email: "",
