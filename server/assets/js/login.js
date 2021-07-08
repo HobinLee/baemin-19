@@ -4,6 +4,10 @@ import {
   checkPwValidation,
 } from "./utils/checkValidation.js";
 import { $ } from "./utils/selector.js";
+import {
+  hideLoadingSpinner,
+  showLoadingSpinner,
+} from "./utils/triggerSpinner.js";
 
 (function () {
   const ERROR_STATE = {
@@ -49,13 +53,20 @@ import { $ } from "./utils/selector.js";
         const isValid = checkFormValidation(state.email, state.password);
 
         if (!isValid) showErrorMessage(state.email, state.password);
-
         if (isValid) {
-          const { user } = await postLogin(state.email, state.password);
-          if (user) {
-            window.location.href = "/";
-          } else {
-            alert("아이디 혹은 비밀번호가 다릅니다.");
+          $(".login-form__btn-value").style.display = "none";
+          showLoadingSpinner();
+
+          try {
+            const { user } = await postLogin(state.email, state.password);
+
+            if (user) window.location.href = "/";
+            else alert("아이디 혹은 비밀번호가 다릅니다.");
+          } catch (error) {
+            throw new Error(error);
+          } finally {
+            $(".login-form__btn-value").style.display = "block";
+            hideLoadingSpinner();
           }
         }
       });
