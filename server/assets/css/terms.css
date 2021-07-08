@@ -36,10 +36,22 @@
     border-bottom : 1px solid var(--light-gray-color);
 }
 
-.next-btn {
-    color:#fff !important;
+.next-btn-link{
+    all:unset;   
+}
+
+.next-btn:disabled {
     background-color:var(--light-gray-color);
+    color:#fff !important;
     font-weight:bold;
+    cursor:default;
+}
+
+.next-btn {
+    background-color:var(--concept-color);
+    color:#fff !important;
+    font-weight:bold;
+    cursor:pointer;
 }
 
 .age-check-box{

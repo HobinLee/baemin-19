@@ -12,14 +12,20 @@ header {
     height: fit-content;
 }
 
-.close-btn{
+.close-btn-wrapper{
+    all:unset;
     position: absolute;
     left: 0;
+}
+
+.close-btn{
+    cursor:pointer;
 }
 
 .header-layout__title{
     font-weight: bold;
     height: 100%;
+    margin-top:2px;
 }
 
 .header-layout__next, .header-layout__complete{
