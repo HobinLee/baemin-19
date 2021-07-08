@@ -6,16 +6,22 @@ head
   title=title
   link(rel='stylesheet' href='../assets/css/index.css')
   link(rel='stylesheet' href='../assets/css/main.css')
-  script(src='../assets/js/index.js' defer='')
+  script(src='../assets/js/index.js' type='module' defer='')
 header.header-layout
   .header-layout__title My 배민
 main.main-page-layout
   section.main-section
     figure.main-banner
-    a.login-btn
-      img.login-btn__user(src='assets/icons/user.png' alt='user_icon')
-      .login-btn__title 로그인 해주세요
-      img.login-btn__icon(src='assets/icons/left.svg' alt='right_icon')
+    if user
+      a.login-btn(href='./login')
+        img.login-btn__user(src='assets/icons/user.png' alt='user_icon')
+        .login-btn__title 로그인 해주세요
+        img.login-btn__icon(src='assets/icons/left.svg' alt='right_icon')
+    else
+      a.login-btn(href='./login')
+        img.login-btn__user(src='assets/icons/user.png' alt='user_icon')
+        .login-btn__title 로그아웃 해주세요
+        img.login-btn__icon(src='assets/icons/left.svg' alt='right_icon')
     nav.main-menu-layout
       .main-menu
         a.main-menu__item

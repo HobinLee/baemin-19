@@ -39,8 +39,9 @@ body {
 }
 
 .woowa-input {
+    box-sizing: border-box;
     border-bottom: 1px solid #999;
-    padding: 10px 0px;
+    padding: 10px 30px 5px 0px;
 }
 
 ::placeholder {

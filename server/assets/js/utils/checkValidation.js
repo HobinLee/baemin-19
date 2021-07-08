@@ -2,9 +2,17 @@ export const checkEmailValidation = (email) => {
   return EMAIL_REGEX.test(email);
 };
 
+export const checkPwRuleOne = (pw) => {
+  return PW_REGEX_RULE_ONE.test(pw);
+}
+
+export const checkPwRuleTwo = (pw) => {
+  return !PW_REGEX_RULE_TWO.test(pw);
+}
+
 export const checkPwValidation = (pw) => {
-  const isPassedRuleOne = PW_REGEX_RULE_ONE.test(pw);
-  const isPassedRuleTwo = !PW_REGEX_RULE_TWO.test(pw);
+  const isPassedRuleOne = checkPwRuleOne(pw);
+  const isPassedRuleTwo = checkPwRuleTwo(pw);
 
   return isPassedRuleOne && isPassedRuleTwo;
 };

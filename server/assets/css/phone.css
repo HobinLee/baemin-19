@@ -9,10 +9,35 @@
     text-align:right;
 }
 
-.certificate-section > button {
-    display:none;
+.certificate-section__fetch-btn {
+    color: var(--concept-color);
+    border-color: var(--concept-color);
+    transition: 0.5s;
 }
 
-.certificate-section > span {
+.certificate-section__fetch-btn:disabled {
+    color: var(--light-gray-color);
+    border-color: var(--light-gray-color);
+}
+
+.next-btn {
+    position: absolute;
+    top: 300px;
+    color: white;
+    background-color: var(--concept-color);
+    transition: 0.5s;
+}
+
+.next-btn:disabled {
+    background-color: var(--light-gray-color);
+}
+
+.certificate-form > span {
+    position: absolute;
+    box-sizing: border-box;
+    margin-top: 10px;
+    top: 100%;
+    right: 0;
     color:var(--concept-color);
+    cursor: pointer;
 }

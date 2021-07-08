@@ -2,8 +2,67 @@
     margin-top:50px;
     color:#fff;
     background-color:var(--concept-color);
+    transition: 0.5s;
 }
 
 .submit-signup-form-btn:disabled{
     background-color:var(--light-gray-color);
+}
+
+#email {
+    padding-right: 40px;
+}
+
+.email-form {
+    box-sizing: border-box;
+    padding-right: 90px;
+}
+
+.email-form > .form-element__check--invalid {
+    right: 90px;
+}
+
+.email-form > .form-element__check {
+    right: 90px;
+}
+
+
+.email-form > .form-element__erase {
+    right: 110px;
+}
+
+.check-email-btn {
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    color: #333;
+    border: 1px solid #333;
+    border-radius: 4px;
+    transition: 0.5s;
+    margin-top: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.5s;
+}
+
+.check-email-btn:disabled {
+    border-color: var(--light-gray-color);
+    color: var(--light-gray-color);
+}
+
+.check-email-btn--confirm {
+    position: absolute;
+    height: 30px;
+    width: 80px;
+    text-align: center;
+    color: white;
+    border: 1px solid var(--concept-color);
+    background-color: var(--concept-color);
+    border-radius: 4px;
+    transition: 0.5s;
+    margin-top: 5px;
+    margin-left: 10px;
+    cursor: pointer;
+    transition: 0.5s;
 }
