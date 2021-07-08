@@ -4,6 +4,7 @@
 
 ### ExpressionEngine ###
 .DS_Store
+sessions/
 
 # Images
 images/avatars/
