@@ -21,7 +21,7 @@ main.phone-page-layout
       img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
       input#email.woowa-input(type='email' placeholder='이메일을 입력해주세요')
       button.check-email-btn(disabled='') 중복확인
-      small 올바르지 않은 이메일 형식입니다
+      small#email-warn 올바르지 않은 이메일 형식입니다
     .form-element
       label(for='nickname') 닉네임
       img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
@@ -39,7 +39,7 @@ main.phone-page-layout
       img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
       img#password-check.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
       input#password-confirm.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
-      small 입력하신 비밀번호가 서로 다릅니다
+      small#confirm-warn 입력하신 비밀번호가 서로 다릅니다
     .form-element
       label(for='birth-date') 생년월일
       img.form-element__check--invalid(src='../assets/icons/check.svg' alt='check-btn')
