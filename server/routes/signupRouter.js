@@ -17,13 +17,13 @@ signupRouter.get("/rest", (req, res) => {
 });
 
 signupRouter.post("/", (req, res) => {
-  const {email, ...rest} = req.body.userData;
+  const {email, pw, ...rest} = req.body.userData;
 
   req.session.user = req.body.userData;
   
   const copiedDB = {...DB};
 
-  copiedDB[email] = rest;
+  copiedDB[email] = { ...rest, pw };
 
   fs.writeFileSync('server/db/db.json', JSON.stringify(copiedDB));
   

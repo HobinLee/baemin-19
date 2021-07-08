@@ -22,6 +22,18 @@ export const postSignUp = async (userData) => {
   return res.json();
 };
 
+export const logout = async () => {
+  const res = await fetch("/auth/logout", {
+    method: "GET",
+    mode: "same-origin",
+    headers: {
+      "Content-Type": "application/json"
+    },
+  })
+
+  return res.json();
+}
+
 export const checkEmailAlreadyExists = async (email) => {
   const res = await fetch(`/auth/check?email=${email}`, {
     method: "GET",

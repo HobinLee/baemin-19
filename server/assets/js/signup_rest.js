@@ -195,9 +195,10 @@ import { $, $$ } from "./utils/selector.js";
         const { httpStatus, isUserExists } = await requestCheckEmailExists(
           userData.email
         );
+        
+        $input.disabled = false;
 
         if (httpStatus === "OK" && !isUserExists) {
-          $input.disabled = false;
           $check.className = "form-element__check";
           $checkEmailBTN.className = "check-email-btn--confirm";
           handleSubmitBTN();

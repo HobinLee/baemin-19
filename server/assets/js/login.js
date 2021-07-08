@@ -52,8 +52,10 @@ import { $ } from "./utils/selector.js";
 
         if (isValid) {
           const { user } = await postLogin(state.email, state.password);
-          if (user.user) {
+          if (user) {
             window.location.href = "/";
+          } else {
+            alert("아이디 혹은 비밀번호가 다릅니다.");
           }
         }
       });
