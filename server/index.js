@@ -8,26 +8,28 @@ const authRouter = require("./routes/authRouter");
 const signupRouter = require("./routes/signupRouter");
 
 const app = express();
-const PORT = 3000;
+const PORT = process.env.PORT || 3000;
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
-app.use(session({
-  secret: 'Si2_#!wiZ0*j!@21lsNd',
-  resave: false,
-  saveUninitialized: true,
-  store: new FileStore,
-  cookie: { secure: false }
-}))
+app.use(
+  session({
+    secret: "Si2_#!wiZ0*j!@21lsNd",
+    resave: false,
+    saveUninitialized: true,
+    store: new FileStore(),
+    cookie: { secure: false },
+  })
+);
 
 app.use(express.static(__dirname));
 
-app.use('/', homeRouter);
-app.use('/auth', authRouter);
-app.use('/signup', signupRouter);
+app.use("/", homeRouter);
+app.use("/auth", authRouter);
+app.use("/signup", signupRouter);
 
 app.listen(PORT, () => {
   console.log(`TESTING ON PORT : ${PORT}`);
