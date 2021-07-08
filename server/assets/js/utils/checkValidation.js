@@ -17,6 +17,19 @@ export const checkPwValidation = (pw) => {
   return isPassedRuleOne && isPassedRuleTwo;
 };
 
+export const checkNicknameValidation = (nickname) => {
+  const MIN_LEN = 2;
+  const MAX_LEN = 10;
+
+  return nickname.length >= MIN_LEN && nickname.length <= MAX_LEN;
+}
+
+export const checkDateValidation = (date) => {
+  const birthDate = new Date(date);
+  
+  return !Number.isNaN(birthDate.getTime());
+}
+
 const EMAIL_REGEX = /^\S+@\S+\.(\S{2,})+/;
 
 const PW_REGEX_RULE_ONE =

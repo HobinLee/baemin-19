@@ -1,4 +1,5 @@
 import { $ } from "./utils/selector.js";
+import { convertToPhoneNumber } from './utils/phone.js'
 
 (() => {
   const $input = $('#phone-no');
@@ -9,55 +10,25 @@ import { $ } from "./utils/selector.js";
   const $certInput = $('#certificate-no');
   const $certAgain = $('.certificate-section__fetch-again');
   const $nextBTN = $('.next-btn');
-  
-  // string에 입력된 숫자만 추출
-  const convertToNumber = (str) => {
-    const regex = new RegExp('[^0-9]', 'g');
-    const maxLength = 11;
 
-    return str.replace(regex, '').substring(0, maxLength);
-  }
+  const PHONE_NO_LENGTH = 13;
 
   const setNextBTN = (enabled) => {
     $nextBTN.disabled = !enabled;
   }
 
-  //str 중간에 문자열 삽입
-  const addChar = (str, index, char) => {
-    return str.substring(0, index) + char + str.substring(index, str.length);
-  }
-
-  //숫자만 받아서 전화번호 form으로 만들기
-  const convertFormat = (origin) => {
-    //010-23O8-1O24
-    const numbers = convertToNumber(origin);
-
-    //01023081024
-    let form = numbers;
-
-    //010-2
-    if (numbers.length > 3) {
-      form = addChar(form, 3, '-');
-    }
-    //010-2308-1
-    if (numbers.length > 7) {
-      form = addChar(form, 8, '-');
-    }
-
-    return form;
-  }
-
   const handleUpdatePhoneNumber = () => {
-    $input.value = convertFormat($input.value);
+    $input.value = convertToPhoneNumber($input.value);
+
     const phoneNumber = $input.value;
 
     const handleCheckUI = () => {
-      if (checkFormat(phoneNumber)) {
-        activeCheckUI($check);
+      if (checkFormat()) {
+        activeCheckUI();
         $certBTN.disabled = false;
       } else {
-        inActiveCheckUI($check);
-        showCertBTN($certBTN, $certForm);
+        inActiveCheckUI();
+        showCertBTN();
       }
     }
     
@@ -87,17 +58,14 @@ import { $ } from "./utils/selector.js";
     }
     
     const checkFormat = () => {
-      // OOO - OOOO - OOOO
-      const PHONE_NUMBER_LENGTH = 13;
-
-      return phoneNumber.length === PHONE_NUMBER_LENGTH;
+      return phoneNumber.length === PHONE_NO_LENGTH;
     }
       
     handleCheckUI(phoneNumber);
     handleEraseBTN(phoneNumber);
   }
 
-  const erasePhoneNumber = ($input) => {
+  const erasePhoneNumber = () => {
     $input.value = '';
   }
 
@@ -113,18 +81,10 @@ import { $ } from "./utils/selector.js";
     $certBTN.disabled = true;
   }
 
-  const appendZero = (num) => {
-    while (num.length < 4) {
-      num = '0' + num;
-    }
-
-    return num;
-  }
-
   const getRandomFourDigits = () => {
     const num = Math.floor(Math.random() * 10000);
 
-    return appendZero(num.toString());
+    return num.toString().padStart(4, '0');
   }
 
   const handleCertification = () => {
@@ -134,7 +94,7 @@ import { $ } from "./utils/selector.js";
       $certInput.value = getRandomFourDigits();
     }
 
-    hideCertBTN($certBTN, $certForm);
+    hideCertBTN();
 
     setTimeout(() => {
       if($certForm.style.display !== 'none') {
@@ -144,22 +104,25 @@ import { $ } from "./utils/selector.js";
     }, TIMER);
   }
 
+  const resetCertInput = () => {
+    $certInput.value = '';
+    $nextBTN.disabled = true;    
+  }
+
   const addEvents = () => {
     $input.addEventListener('input', () => {
       handleUpdatePhoneNumber();
 
-      if($input.value.length >= 13) return;
+      if ($input.value.length >= PHONE_NO_LENGTH) return;
 
-      $certInput.value = '';
-      $nextBTN.disabled = true;
+      resetCertInput();
     });
 
     $erase.addEventListener('click', () => {
       erasePhoneNumber();
       handleUpdatePhoneNumber();
 
-      $certInput.value = '';
-      $nextBTN.disabled = true;
+      resetCertInput();
     });
 
     $certBTN.addEventListener('click', () => {
@@ -167,8 +130,7 @@ import { $ } from "./utils/selector.js";
     });
 
     $certAgain.addEventListener('click', () => {
-      $certInput.value = '';
-      $nextBTN.disabled = true;
+      resetCertInput();
       handleCertification();
     });
   }
