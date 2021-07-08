@@ -1,3 +1,4 @@
+import { postLogin } from "./api/api.js";
 import {
   checkEmailValidation,
   checkPwValidation,
@@ -42,14 +43,16 @@ import { $ } from "./utils/selector.js";
         }
       });
 
-      document.addEventListener("submit", (e) => {
+      document.addEventListener("submit", async (e) => {
         e.preventDefault();
 
         const isValid = checkFormValidation(state.email, state.password);
 
         if (!isValid) showErrorMessage(state.email, state.password);
+
         if (isValid) {
-          window.location.href = "/";
+          const { user } = await postLogin(state.email, state.password);
+          if(user.user) window.location.href = "/";
         }
       });
     };

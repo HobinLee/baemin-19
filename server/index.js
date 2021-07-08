@@ -1,34 +1,33 @@
 const express = require("express");
 const pug = require("pug");
 const path = require("path");
+const session = require("express-session");
+const FileStore = require("session-file-store")(session);
+const homeRouter = require("./routes/homeRouter");
+const authRouter = require("./routes/authRouter");
+const signupRouter = require("./routes/signupRouter");
 
 const app = express();
 const PORT = 3000;
 
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
+
 app.set("view engine", "pug");
 app.set("views", path.join(__dirname, "views"));
+app.use(session({
+  secret: 'Si2_#!wiZ0*j!@21lsNd',
+  resave: false,
+  saveUninitialized: true,
+  store: new FileStore,
+  cookie: { secure: false }
+}))
 
 app.use(express.static(__dirname));
 
-app.get("/", (req, res) => {
-  res.render("index", { title: "배민 로그인" });
-});
-
-app.get("/login", (req, res) => {
-  res.render("login", { title: "배민 로그인" });
-});
-
-app.get("/signup/phone", (req, res) => {
-  res.render("signup_phone", { title: "배민 로그인" });
-});
-
-app.get("/signup/terms", (req, res) => {
-  res.render("signup_terms", { title: "배민 로그인" });
-});
-
-app.get("/signup/rest", (req, res) => {
-  res.render("signup_rest", { title: "배민 로그인" });
-});
+app.use('/', homeRouter);
+app.use('/auth', authRouter);
+app.use('/signup', signupRouter);
 
 app.listen(PORT, () => {
   console.log(`TESTING ON PORT : ${PORT}`);

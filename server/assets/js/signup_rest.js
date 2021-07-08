@@ -1,3 +1,4 @@
+import { postSignUp } from './api/api.js';
 import { checkDateValidation, checkNicknameValidation, checkEmailValidation, checkPwValidation, checkPwRuleTwo, checkPwRuleOne }  from './utils/checkValidation.js';
 import { $, $$ } from "./utils/selector.js";
 
@@ -13,6 +14,11 @@ import { $, $$ } from "./utils/selector.js";
   const $submitBTN = $('.submit-signup-form-btn');
   const PW_REGEX_RULE_ONE = '10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다';
   const PW_REGEX_RULE_TWO = '연속된 숫자 혹은 같은 숫자가 세자리 이상 설정할 수 없습니다';
+
+  const checkEmail = (email) => {
+    userData.email = email;
+    return checkEmailValidation(email);
+  }
 
   const checkPWForm = (pw) => {
     userData.pw = pw;
@@ -58,7 +64,7 @@ import { $, $$ } from "./utils/selector.js";
   }
 
   const checkFormList = [
-    checkEmailValidation,
+    checkEmail,
     checkNickname,
     checkPWForm,
     checkPWConfirm,
@@ -195,15 +201,17 @@ import { $, $$ } from "./utils/selector.js";
     });
   }
 
-  const register = () => {
-    // #TODO: 회원가입 API 연동
-    
-    console.log('회원가입 요청!');
-    console.log(userData);
+  const register = async (e) => {
+    e.preventDefault();    
+
+    const { httpStatus } = await postSignUp(userData);
+    if(httpStatus === "OK"){
+      window.location.href = "/";
+    }
   }
   
   const setRegisterEvent = () => {
-    $submitBTN.addEventListener('click', () => register());
+    document.addEventListener("submit", register);
   }
 
   setAllFormEvents();
