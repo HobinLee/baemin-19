@@ -1,7 +1,7 @@
 import { $ } from "./utils/selector.js";
 
 (() => {
-  const $input = $('phone-no');
+  const $input = $('#phone-no');
   const $erase = $('.form-element__erase');
   const $check = $('.form-element__check--invalid');
   const $certBTN = $('.woowa-btn.certificate-section__fetch-btn');
