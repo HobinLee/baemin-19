@@ -34,10 +34,10 @@ main.phone-page-layout
     input#password.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
     small#password-warn 10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다
   .form-element
-    label(for='password-check') 비밀번호 확인
+    label(for='password-confirm') 비밀번호 확인
     img.form-element__erase(src='../assets/icons/x.svg' alt='close-btn')
-    img.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
-    input#password-check.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
+    img#password-check.form-element__check--invalid(src='../assets/icons/check.svg' alt='close-btn')
+    input#password-confirm.woowa-input.warn(type='password' placeholder='비밀번호를 입력해주세요')
     small 입력하신 비밀번호가 서로 다릅니다
   .form-element
     label(for='birth-date') 생년월일
