@@ -52,7 +52,9 @@ import { $ } from "./utils/selector.js";
 
         if (isValid) {
           const { user } = await postLogin(state.email, state.password);
-          if(user.user) window.location.href = "/";
+          if (user.user) {
+            window.location.href = "/";
+          }
         }
       });
     };

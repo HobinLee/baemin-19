@@ -206,7 +206,9 @@ import { $, $$ } from "./utils/selector.js";
 
     const { httpStatus } = await postSignUp(userData);
     if(httpStatus === "OK"){
-      window.location.href = "/";
+      setTimeout(() => {
+        window.location.href = "/";
+      }, 1000);
     }
   }
   

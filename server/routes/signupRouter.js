@@ -24,8 +24,9 @@ signupRouter.post("/", (req, res) => {
   const copiedDB = {...DB};
 
   copiedDB[email] = rest;
-  //fs.writeFileSync('server/db/db.json', JSON.stringify(copiedDB));
 
+  fs.writeFileSync('server/db/db.json', JSON.stringify(copiedDB));
+  
   res.json({ httpStatus : "OK" });
 })
 
