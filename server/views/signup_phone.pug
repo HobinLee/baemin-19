@@ -8,8 +8,9 @@ head
   link(rel='stylesheet' href='../assets/css/phone.css')
   script(src='../assets/js/signup_phone.js' type='module' defer='')
 header.header-layout
-  a.close-btn(href='/signup/terms')
-    img(src='../assets/icons/left.svg' alt='close-btn')
+  a.close-btn-wrapper(href='/signup/terms')
+    button.close-btn
+      img(src='../assets/icons/left.svg' alt='close-btn')
   h2.header-layout__title 회원가입
   span.header-layout__next 다음
 main.phone-page-layout
