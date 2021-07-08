@@ -1,15 +1,15 @@
 import { $ } from "./utils/selector.js";
 
-const DEFAULT_TERM_STATE = {
-  "check-all": false,
-  "baemin-usage-term": false,
-  "financial-term": false,
-  "personal-info-collect-term": false,
-  "personal-info-provide-term": false,
-  "marketing-term": false,
-};
-
 (function () {
+  const DEFAULT_TERM_STATE = {
+    "check-all": false,
+    "baemin-usage-term": false,
+    "financial-term": false,
+    "personal-info-collect-term": false,
+    "personal-info-provide-term": false,
+    "marketing-term": false,
+  };
+
   const signup = () => {
     let state = {
       ...DEFAULT_TERM_STATE,
