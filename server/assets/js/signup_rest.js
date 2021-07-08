@@ -23,10 +23,23 @@ import { $, $$ } from "./utils/selector.js";
     "10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다";
   const PW_REGEX_RULE_TWO =
     "연속된 숫자 혹은 같은 숫자가 세자리 이상 설정할 수 없습니다";
+  const ERR_EMAIL_REGEX_RULE =
+    "올바르지 않은 이메일 형식입니다";
+  const ERR_PW_DIFFERENT = "비밀번호가 서로 다릅니다";
+  const ERR_EMAIL_ALREADY_EXIST = 
+    "이미 존재하는 이메일주소 입니다";
+  const LOADING_BTN = 'loading-btn';
 
-  const checkEmail = async (email) => {
+  const checkEmail = (email) => {
     userData.email = email;
-    return checkEmailValidation(email);
+    const $emailWarn = $("#email-warn");
+
+    if (checkEmailValidation(email)) {
+      return true;
+    } else {
+      $emailWarn.innerText = ERR_EMAIL_REGEX_RULE;
+      return false;
+    }
   };
 
   const checkPWForm = (pw) => {
@@ -57,7 +70,15 @@ import { $, $$ } from "./utils/selector.js";
   };
 
   const checkPWConfirm = (confirm) => {
-    return checkPwValidation(confirm) && confirm === userData.pw;
+    const $confirmWarn = $("#confirm-warn");
+
+    if (confirm !== userData.pw) {
+      $confirmWarn.innerText = ERR_PW_DIFFERENT;
+      return false;
+    } else {
+      $confirmWarn.innerText = PW_REGEX_RULE_ONE;
+      return checkPwValidation(confirm);
+    }
   };
 
   const checkNickname = (nickname) => {
@@ -116,8 +137,9 @@ import { $, $$ } from "./utils/selector.js";
         $input.classList.remove("invalid-form");
       }
 
-      if (checkFormat($input.value, $warn)) {
+      if (checkFormat($input.value)) {
         if ($checkEmailBTN) {
+          $check.className = "form-element__check--invalid";
           $checkEmailBTN.disabled = false;
         } else {
           $check.className = "form-element__check";
@@ -129,7 +151,6 @@ import { $, $$ } from "./utils/selector.js";
         }
 
         resetCheckEmailBTN();
-
         $check.className = "form-element__check--invalid";
       }
     };
@@ -195,13 +216,17 @@ import { $, $$ } from "./utils/selector.js";
         const { httpStatus, isUserExists } = await requestCheckEmailExists(
           userData.email
         );
-        
+
         $input.disabled = false;
 
         if (httpStatus === "OK" && !isUserExists) {
           $check.className = "form-element__check";
           $checkEmailBTN.className = "check-email-btn--confirm";
           handleSubmitBTN();
+        } else {
+          $checkEmailBTN.disabled = false;
+          $warn.style.display = "block";
+          $warn.innerText = ERR_EMAIL_ALREADY_EXIST;
         }
       });
 
@@ -218,7 +243,20 @@ import { $, $$ } from "./utils/selector.js";
     });
   };
 
+  const btnLoadingStart = ($btn) => {
+    $btn.disabled = true;
+    $btn.classList.add(LOADING_BTN);
+  }
+
+  const btnLoadingFinish = ($btn) => {
+    $btn.disabled = false;
+    $btn.classList.remove(LOADING_BTN);
+  }
+
   const register = async (e) => {
+
+    btnLoadingStart($submitBTN);
+
     e.preventDefault();
 
     const { httpStatus } = await postSignUp(userData);
@@ -226,6 +264,9 @@ import { $, $$ } from "./utils/selector.js";
       setTimeout(() => {
         window.location.href = "/";
       }, 1000);
+    } else {
+      alert('서버 요청이 실패했습니다. 잠시 후, 다시 시도해주세요');
+      btnLoadingFinish($submitBTN);
     }
   };
 

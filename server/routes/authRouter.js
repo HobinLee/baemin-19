@@ -1,5 +1,6 @@
 const express = require("express");
 const DB = require("../db/db.json");
+const crypto = require('crypto');
 
 const authRouter = express.Router();
 
@@ -12,7 +13,9 @@ authRouter.get("/", (req, res) => {
 });
 
 const checkPassword = (email, pw) => {
-  return DB[email] && DB[email].pw === pw;
+  const hashedPW = crypto.createHash('sha512').update(pw).digest('base64');
+  
+  return DB[email] && DB[email].pw === hashedPW;
 }
 
 authRouter.post("/login", (req, res) => {
