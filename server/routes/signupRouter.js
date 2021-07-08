@@ -6,15 +6,15 @@ const DB = require('../db/db.json');
 const signupRouter = express.Router();
 
 signupRouter.get("/phone", (req, res) => {
-  res.render("signup_phone", { title: "배민 로그인" });
+  res.render("signup_phone", { title: "배민 회원가입" });
 });
 
 signupRouter.get("/terms", (req, res) => {
-  res.render("signup_terms", { title: "배민 로그인" });
+  res.render("signup_terms", { title: "배민 회원가입" });
 });
 
 signupRouter.get("/rest", (req, res) => {
-  res.render("signup_rest", { title: "배민 로그인" });
+  res.render("signup_rest", { title: "배민 회원가입" });
 });
 
 signupRouter.post("/", (req, res) => {

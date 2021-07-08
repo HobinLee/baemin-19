@@ -7,7 +7,6 @@ export const checkPwRuleOne = (pw) => {
 };
 
 export const checkPwRuleTwo = (pw) => {
-  console.log(pw.match(PW_REGEX_RULE_TWO));
   return pw.match(PW_REGEX_RULE_TWO) === null;
 };
 

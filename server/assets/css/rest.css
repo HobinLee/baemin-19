@@ -9,6 +9,17 @@
     background-color:var(--light-gray-color);
 }
 
+.loading-btn{
+    opacity: 1;
+    background-color: var(--concept-color);
+    transform: 0.5s;
+}
+
+.loading-btn:disabled{
+    background-color: var(--concept-color);
+    opacity: 0.8;
+}
+
 #email {
     padding-right: 40px;
 }

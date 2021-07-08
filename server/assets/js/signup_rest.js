@@ -8,6 +8,7 @@ import {
   checkPwRuleOne,
 } from "./utils/checkValidation.js";
 import { $, $$ } from "./utils/selector.js";
+import { hideLoadingSpinner, showLoadingSpinner } from "./utils/triggerSpinner.js";
 
 (() => {
   const userData = {
@@ -244,12 +245,18 @@ import { $, $$ } from "./utils/selector.js";
 
   const btnLoadingStart = ($btn) => {
     $btn.disabled = true;
+    //$btn.innerText = '';
     $btn.classList.add(LOADING_BTN);
+    //$btn.classList.remove('submit-signup-form-btn');
+    //showLoadingSpinner();
   }
 
   const btnLoadingFinish = ($btn) => {
     $btn.disabled = false;
+    //$btn.innerText = '완료';
     $btn.classList.remove(LOADING_BTN);
+    //$btn.classList.add('submit-signup-form-btn');
+    //hideLoadingSpinner();
   }
 
   const register = async (e) => {
