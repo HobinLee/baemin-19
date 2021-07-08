@@ -3,6 +3,7 @@
 @import "./component/radio.css";
 @import "./component/header.css";
 @import "./component/form_element.css";
+@import "./component/loadingSpinner.css";
 
 :root {
     --background-color: #fff;
