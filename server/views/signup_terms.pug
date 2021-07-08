@@ -6,9 +6,11 @@ head
   title Document
   link(rel='stylesheet' href='../assets/css/index.css')
   link(rel='stylesheet' href='../assets/css/terms.css')
+  script(type="module" src="../assets/js/signup_terms.js" defer) 
 header.header-layout
-  button.close-btn
-    img(src='../assets/icons/x.svg' alt='close-btn')
+  a(href="/login").close-btn-wrapper
+    button.close-btn
+      img(src='../assets/icons/x.svg' alt='close-btn')
   h2.header-layout__title 회원가입
 main.terms-page-layout
   section.intro-box
@@ -21,12 +23,12 @@ main.terms-page-layout
       span.checkmark
   section.terms-box
     label.checkbox-container
-      input#baemin-usage-terms(type='checkbox')
-      label(for='baemin-usage-terms') 배달의민족 이용약관 동의
+      input#baemin-usage-term(type='checkbox')
+      label(for='baemin-usage-term') 배달의민족 이용약관 동의
       span.checkmark
       img(src='../assets/icons/left.svg')
-    label#financial-term.checkbox-container
-      input(type='checkbox')
+    label.checkbox-container
+      input#financial-term(type='checkbox')
       label(for='financial-term') 전자금융거래 이용약관 동의
       span.checkmark
       img(src='../assets/icons/left.svg')
@@ -47,12 +49,13 @@ main.terms-page-layout
   section.age-check-box
     p
       label.radio-container
-        input#over-14(type='radio')
+        input#over-14(type='radio' checked=true)
         label(for='over-14') 만 14세 이상입니다.
         span.checkmark
     p
       label.radio-container
-        input#under-14(type='radio')
+        input#under-14(type='radio' checked=false)
         label(for='under-14') 만 14세 미만입니다.
         span.checkmark
-  button.woowa-btn.next-btn(disabled='') 다음으로
+  a(href="/signup/phone").next-btn-link
+    button.woowa-btn.next-btn(disabled) 다음으로
