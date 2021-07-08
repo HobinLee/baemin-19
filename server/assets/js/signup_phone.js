@@ -1,12 +1,14 @@
+import { $ } from "./utils/selector.js";
+
 (() => {
-  const $input = document.getElementById('phone-no');
-  const $erase = document.querySelector('.form-element__erase');
-  const $check = document.querySelector('.form-element__check--invalid');
-  const $certBTN = document.querySelector('.woowa-btn.certificate-section__fetch-btn');
-  const $certForm = document.querySelector('.certificate-form');
-  const $certInput = document.getElementById('certificate-no');
-  const $certAgain = document.querySelector('.certificate-section__fetch-again');
-  const $nextBTN = document.querySelector('.next-btn');
+  const $input = $('phone-no');
+  const $erase = $('.form-element__erase');
+  const $check = $('.form-element__check--invalid');
+  const $certBTN = $('.woowa-btn.certificate-section__fetch-btn');
+  const $certForm = $('.certificate-form');
+  const $certInput = $('#certificate-no');
+  const $certAgain = $('.certificate-section__fetch-again');
+  const $nextBTN = $('.next-btn');
   
   // string에 입력된 숫자만 추출
   const convertToNumber = (str) => {

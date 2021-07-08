@@ -1,3 +1,6 @@
+import { checkEmailValidation, checkPwRuleTwo, checkPwRuleOne }  from './utils/checkValidation.js';
+import { $, $$ } from "./utils/selector.js";
+
 (() => {
   const userData = {
     email: null,
@@ -6,16 +9,8 @@
     birthDate: null,
   }
 
-  const $formList = document.querySelectorAll('.form-element');
-  const $submitBTN = document.querySelector('.submit-signup-form-btn');
-
-
-  const checkEmailForm = (email) => {
-    userData.email = email;
-
-    const regex = new RegExp('^[0-9-zA-Z]([-_.]?[0-9a-zA-Z])*@[0-9a-zA-Z]([-_.]?[0-9a-zA-Z])*(.[a-zA-Z]{2,3}$)', 'i');
-    return regex.test(email);
-  }
+  const $formList = $$('.form-element');
+  const $submitBTN = $('.submit-signup-form-btn');
 
   const checkNickName = (nickName) => {
     userData.nickName = nickName;
@@ -29,28 +24,19 @@
   const checkPWForm = (pw) => {
     userData.pw = pw;
 
-    const regex = new RegExp('^(?=.*[A-Z])(?=.*[a-z])([^\s]){10,}|(?=.*[A-Z])(?=.*[0-9])([^\s]){10,}|(?=.*[A-Z])(?=.*[<>{}|;:.,~!?@#$%^=&*\”\\/])([^\s]){10,}|(?=.*[a-z])(?=.*[0-9])([^\s]){10,}|(?=.*[a-z])(?=.*[<>{}|;:.,~!?@#$%^=&*\”\\/])([^\s]){10,}|(?=.*[0-9])(?=.*[<>{}|;:.,~!?@#$%^=&*\”\\/])([^\s]){10,}$', 'i');
-    const $pwWarn = document.getElementById('password-warn');
+    const $pwWarn = $('#password-warn');
 
-    if (regex.test(pw) === false) {
+    if (!checkPwRuleOne(pw)) {
       $pwWarn.innerText = '10자 이상 영어 대문자, 소문자, 숫자, 특수문자 중 2종류를 조합해야 합니다';
       return false;
     }
 
-    if (false) {
+    if (!checkPwRuleTwo(pw)) {
       $pwWarn.innerText = '연속된 숫자 혹은 같은 숫자가 세자리 이상 설정할 수 없습니다';
       return false;
     }
 
     return true;
-
-    //regex2 = new RegExp('^(000|111|222|333|444|555|666|777|888|999|012|123|234|345|456|567|678|789|987|876|765|654|543|432|321|210)$', 'i');
-
-    //if (regex2.test(pw) === false) {
-    //  return false;
-    //}
-
-    //return true;
   }
 
   const checkPWConfirm = (confirm) => {
@@ -68,7 +54,7 @@
   }
 
   const checkFormList = [
-    checkEmailForm,
+    checkEmailValidation,
     checkNickName,
     checkPWForm,
     checkPWConfirm,
@@ -76,7 +62,7 @@
   ];
 
   const checkAllCondition = () => {
-    return document.querySelectorAll('.form-element__check--invalid').length === 0;
+    return $$('.form-element__check--invalid').length === 0;
   }
 
   const handleSubmitBTN = () => {
@@ -88,15 +74,15 @@
   }
 
   const setFormEvent = ($form, checkFormat) => {
-    const $input = $form.querySelector('input');
-    const $eraseBTN = $form.querySelector('.form-element__erase');
-    const $check = $form.querySelector('.form-element__check--invalid');
-    const $warn = $form.querySelector('small');
+    const $input = $('input', $form);
+    const $eraseBTN = $('.form-element__erase', $form);
+    const $check = $('.form-element__check--invalid', $form);
+    const $warn = $('small', $form);
     
-    let $checkEmailBTN = $form.querySelector('.check-email-btn');
+    let $checkEmailBTN = $('.check-email-btn', $form);
 
     if (!$checkEmailBTN) {
-      $checkEmailBTN = $form.querySelector('.check-email-btn--confirm');
+      $checkEmailBTN = $('.check-email-btn--confirm', $form);
     }
 
     $checkEmailBTN?.addEventListener('click', () => {
@@ -116,6 +102,7 @@
     const setFormat = (finish) => {
       if (!finish) {
         $warn.style.display = 'none';
+        $input.classList.remove("invalid-form");
       }
 
       if (checkFormat($input.value, $warn)) {
@@ -127,6 +114,7 @@
       } else {
         if (finish) {
           $warn.style.display = 'block';
+          $input.classList.add("invalid-form");
         }
 
         if ($checkEmailBTN) {
