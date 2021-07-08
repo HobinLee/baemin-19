@@ -32,3 +32,15 @@ header {
     position: absolute;
     right: 0;
 }
+
+.logout-btn {
+    color: var(--concept-color);
+    position: absolute;
+    right: 0;
+    margin-top: 5px;
+    cursor: pointer;
+}
+
+.header-logo {
+    height: 16px;
+}

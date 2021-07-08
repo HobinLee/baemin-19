@@ -1,9 +1,16 @@
+@import url(//fonts.googleapis.com/earlyaccess/hanna.css);
+
 body {
 	padding: 0px;
 	background-color: var(--light-gray-color);
 }
+
 header {
 	background-color: #fff;
+}
+
+.logout-btn {
+	margin-right: 10px;
 }
 
 .main-section {
@@ -31,6 +38,7 @@ header {
 	border-top: 1px solid var(--light-gray-color);
 	border-right: 1px solid var(--light-gray-color);
 	cursor: pointer;
+	z-index: 5;
 }
 
 .main-banner {
@@ -131,4 +139,51 @@ header {
 	width: 60px;
 	height: 60px;
 	transition: 0.3s;
+}
+
+.welcome-btn {
+	background-color: var(--concept-color);
+	padding-right: 40px;
+	padding-left: 130px;
+  font-family: 'Hanna', fantasy;
+	color: #fff;
+	justify-content: flex-end;
+}
+
+.welcome-btn__title {
+	display: flex;
+	flex-wrap: wrap;
+	align-items: center;
+	justify-content: flex-end;
+	text-align: right;
+	margin: 5px;
+	font-size: 22px;
+}
+
+.welcome-btm__name-wrap {
+	text-align: right;
+	width: auto;
+	white-space: nowrap;
+	display: flex;
+	margin: 0px 8px;
+}
+
+.welcome-btn__name {
+	font-size: 26px;
+	text-decoration: underline;
+	transition: 0.5s;
+	margin-top: 3px;
+}
+
+.welcome-btn__end {
+	margin: 5px;
+	margin-right: -10px;
+}
+
+.welcome-img {
+	position: absolute;
+	width: 90px;
+	height: auto;
+	left: 50px;
+	bottom: 0px;
 }

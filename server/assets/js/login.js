@@ -1,6 +1,8 @@
 import { postLogin } from "./api/api.js";
 import {
   checkEmailValidation,
+  checkPwRuleOne,
+  checkPwRuleTwo, 
   checkPwValidation,
 } from "./utils/checkValidation.js";
 import { $ } from "./utils/selector.js";
@@ -39,6 +41,8 @@ import { $ } from "./utils/selector.js";
           setState({ email: target.value, isShowingEmailErrMsg: false });
         }
         if (target.closest(".login-form__pw")) {
+          console.log(target.value, checkPwRuleOne(target.value), checkPwRuleTwo(target.value));
+
           setState({ password: target.value, isShowingPasswordErrMsg: false });
         }
       });

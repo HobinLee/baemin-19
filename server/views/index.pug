@@ -8,15 +8,19 @@ head
   link(rel='stylesheet' href='../assets/css/main.css')
   script(src='../assets/js/index.js' type='module' defer='')
 header.header-layout
-  .header-layout__title My 배민
+  img.header-logo(src="assets/icons/logo.png" alt="logo")
+  if user
+    a.logout-btn 로그아웃
 main.main-page-layout
   section.main-section
     figure.main-banner
     if user
-      a.login-btn.logout-btn
-        img.login-btn__user(src='../assets/icons/user.png' alt='user_icon')
-        .login-btn__title 로그아웃 해주세요
-        img.login-btn__icon(src='../assets/icons/left.svg' alt='right_icon')
+      a.login-btn.welcome-btn
+        img.login-btn__user.welcome-img(src='https://lh3.googleusercontent.com/proxy/qJuxBWHs6DO_MRfsBSn61m66SUiCFF3_xrpmdhe2-y8s4LzTASx71XKlq2-OtDQZOAz6suhzjEPev7-qXSUB8y1MfavuC5mvPgp35LD9ptSYfqH95gk' alt='user_icon')
+        .welcome-btn__title 반갑습니다
+          .welcome-btm__name-wrap
+            span.welcome-btn__name !{user.nickname}
+            .welcome-btn__end 님!
     else
       a.login-btn(href='/auth')
         img.login-btn__user(src='../assets/icons/user.png' alt='user_icon')

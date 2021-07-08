@@ -224,7 +224,6 @@ import { $, $$ } from "./utils/selector.js";
           $checkEmailBTN.className = "check-email-btn--confirm";
           handleSubmitBTN();
         } else {
-          $checkEmailBTN.disabled = false;
           $warn.style.display = "block";
           $warn.innerText = ERR_EMAIL_ALREADY_EXIST;
         }
