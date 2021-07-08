@@ -4,11 +4,11 @@ export const checkEmailValidation = (email) => {
 
 export const checkPwRuleOne = (pw) => {
   return PW_REGEX_RULE_ONE.test(pw);
-}
+};
 
 export const checkPwRuleTwo = (pw) => {
-  return !PW_REGEX_RULE_TWO.test(pw);
-}
+  return pw.match(PW_REGEX_RULE_TWO) === null;
+};
 
 export const checkPwValidation = (pw) => {
   const isPassedRuleOne = checkPwRuleOne(pw);
@@ -22,13 +22,13 @@ export const checkNicknameValidation = (nickname) => {
   const MAX_LEN = 10;
 
   return nickname.length >= MIN_LEN && nickname.length <= MAX_LEN;
-}
+};
 
 export const checkDateValidation = (date) => {
   const birthDate = new Date(date);
-  
+
   return !Number.isNaN(birthDate.getTime());
-}
+};
 
 const EMAIL_REGEX = /^\S+@\S+\.(\S{2,})+/;
 
