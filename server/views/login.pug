@@ -6,7 +6,7 @@ head
   title 배민 로그인
   link(rel='stylesheet' href='assets/css/index.css')
   link(rel='stylesheet' href='assets/css/login.css')
-  script(type="module" src='../assets/js/login.js' defer='')
+  script(type="module" src='assets/js/login.js' defer='')
 header.header-layout
   a(href="/").close-btn-wrapper
     button.close-btn
@@ -22,4 +22,5 @@ main.login-page-layout
       input.woowa-input.login-form__pw(type='password' placeholder='비밀번호를 입력해주세요' disabled=false)
       small.login-form__container--pw-error-msg 
     input.woowa-btn.login-form__submit-btn(type='submit' value='로그인')
-  button.woowa-btn.signup-btn 회원가입
+  a(href="/signup/terms")
+    button.woowa-btn.signup-btn 회원가입  
