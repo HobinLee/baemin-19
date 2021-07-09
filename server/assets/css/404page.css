@@ -1,0 +1,47 @@
+.error-main{
+    all:unset;
+}
+
+.error-bg{
+    height:100%;
+    min-height: 100vh;
+    background: url("../icons/404-bg.png") no-repeat;
+    background-position: 50% 0;
+}
+
+.error-content {
+    position:absolute;
+    top:30%;
+    left:calc(50% - 175px);
+    
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    width:350px;
+}
+
+.error-baedal-character{
+    width:100%;
+}
+
+
+.error-notice{
+    margin: 40px 0;
+    text-align: center;
+}
+
+.error-notice > h2 {
+    font-weight:bold;
+    font-size:15px;
+    margin-bottom:20px;
+}
+
+.error-notice > span {
+    display:block;
+    font-size:12px;
+    line-height: 1.5;
+}
+
+.error-to-home{
+    margin:0 auto;
+}
