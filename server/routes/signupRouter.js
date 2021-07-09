@@ -1,12 +1,23 @@
 const express = require("express");
 const fs = require("fs");
-const crypto = require("crypto");
+const bcrypt = require("bcrypt");
 
 const DB = require("../db/db.json");
 const signupRouter = express.Router();
 
 const TEMPORARY_REDIRECT_CODE = 307;
 const PAGE_TITLE = "대한민국 1등 배달앱, 배달의민족";
+
+/**
+ * 입력된 Password를 Salting 후 Hasing 합니다.
+ */
+const getHashedPassword = async (pw) => {
+  const SALT_ROUNDS = 10;
+  const salt = bcrypt.genSaltSync(SALT_ROUNDS);
+  const hashedPW = bcrypt.hashSync(pw, salt);
+
+  return hashedPW;
+}
 
 /**
  * SIGNUP_SUB_PATHS에 해당하는 path로 GET 요청이 올 경우,
@@ -28,13 +39,13 @@ signupRouter.get(SIGNUP_SUB_PATHS, (req, res) => {
  * POST ~/signup 요청 시,
  * DB에 hashing 된 password를 저장합니다.
  */
-signupRouter.post("/", ({ body, session }, res) => {
+signupRouter.post("/", async ({ body, session }, res) => {
   session.user = body.userData;
 
   const { email, pw, ...rest } = body.userData;
   const copiedDB = { ...DB };
 
-  const hashedPW = crypto.createHash("sha512").update(pw).digest("base64");
+  const hashedPW = await getHashedPassword(pw);
   copiedDB[email] = { ...rest, pw: hashedPW };
 
   fs.writeFileSync("server/db/db.json", JSON.stringify(copiedDB));

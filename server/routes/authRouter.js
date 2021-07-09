@@ -1,10 +1,19 @@
 const express = require("express");
 const DB = require("../db/db.json");
-const crypto = require("crypto");
-
+const bcrypt = require("bcrypt");
 const authRouter = express.Router();
 const TEMPORARY_REDIRECT_CODE = 307;
 const PAGE_TITLE = "대한민국 1등 배달앱, 배달의민족";
+
+/**
+ * Hashing 된 Password를
+ * DB에 있는 Password와 비교합니다.
+ */
+const checkPassword = async (email, pw) => {
+  const result = bcrypt.compareSync(pw, DB[email].pw);
+
+  return result;
+};
 
 /**
  * 만약 기존에 로그인 했던 유저라면,
@@ -24,25 +33,23 @@ authRouter.get("/", (req, res) => {
  * 일치한다면 세션에 유저 정보를 반영하고,
  * user info를 반환합니다.
  */
+authRouter.post("/login", async (req, res) => {
+  try {
+    const {email, pw} = req.body;
+    const isPWCorrect = await checkPassword(email, pw);
+    
+    if (isPWCorrect) {
+      const { password: pw, ...userInfo } = DB[email];
 
-authRouter.post("/login", (req, res) => {
-  if (!checkPassword(req.body.email, req.body.pw)) {
-    return res.json({ user: null });
+      req.session.user = userInfo;
+      res.json({ user: userInfo });
+    } else {
+      res.json({ user: null });
+    }
+  } catch (err) {
+    res.json({ user: null });
   }
-
-  const { email, pw, ...rest } = DB[req.body.email];
-  req.session.user = rest;
-  res.json({ user: rest });
 });
-
-/**
- * Hashing 된 Password를
- * DB에 있는 Password와 비교합니다.
- */
-const checkPassword = (email, pw) => {
-  const hashedPW = crypto.createHash("sha512").update(pw).digest("base64");
-  return DB[email] && DB[email].pw === hashedPW;
-};
 
 /**
  * 로그아웃 요청 시,
