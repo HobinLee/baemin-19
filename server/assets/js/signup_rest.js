@@ -259,15 +259,20 @@ import { hideLoadingSpinner, showLoadingSpinner } from "./utils/triggerSpinner.j
     hideLoadingSpinner();
   }
 
+  let btnValid = true;
+
   const register = async (e) => {
     e.preventDefault();
+
+    //버튼이 응답 완료까지 한번만 눌리게 하기
+    if (!btnValid) return;
+    btnValid = false;
 
     btnLoadingStart($submitBTN);
 
   
     const { httpStatus } = await postSignUp(userData);
-    
-    console.log(httpStatus);
+    btnValid = true;
 
     if (httpStatus === "OK") {
       setTimeout(() => {

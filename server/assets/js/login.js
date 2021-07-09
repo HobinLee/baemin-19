@@ -47,9 +47,14 @@ import {
         }
       });
 
+      let btnValid = true;
+
       document.addEventListener("submit", async (e) => {
         e.preventDefault();
 
+        if (!btnValid) return;
+        btnValid = false;
+        
         const isValid = checkFormValidation(state.email, state.password);
 
         if (!isValid) showErrorMessage(state.email, state.password);
@@ -60,6 +65,7 @@ import {
 
           try {
             const { user } = await postLogin(state.email, state.password);
+            btnValid = true;
             
             if (user) window.location.href = "/";
             else alert("아이디 혹은 비밀번호가 다릅니다.");

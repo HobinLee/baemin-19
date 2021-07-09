@@ -23,11 +23,14 @@ import { convertToPhoneNumber } from './utils/phone.js'
     const phoneNumber = $input.value;
 
     const handleCheckUI = () => {
+      //핸드폰 번호 입력이 완료 되었을 때, checkUI 및 인증번호 버튼 활성화
       if (checkFormat()) {
         activeCheckUI();
         $certBTN.disabled = false;
       } else {
+        //핸드폰 번호 입력 미 완료시 checkUI 비활성화
         inActiveCheckUI();
+        //check UI 비활성화 및 인증번호 영역 비활성화
         showCertBTN();
       }
     }
