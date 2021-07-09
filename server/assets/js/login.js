@@ -54,19 +54,21 @@ import {
 
         if (!isValid) showErrorMessage(state.email, state.password);
         if (isValid) {
+          $(".login-form__submit-btn").style.opacity = 0.6;
           $(".login-form__btn-value").style.display = "none";
           showLoadingSpinner();
 
           try {
             const { user } = await postLogin(state.email, state.password);
-
+            
             if (user) window.location.href = "/";
             else alert("아이디 혹은 비밀번호가 다릅니다.");
           } catch (error) {
             throw new Error(error);
           } finally {
-            $(".login-form__btn-value").style.display = "block";
+            $(".login-form__submit-btn").style.opacity = 1;
             hideLoadingSpinner();
+            $(".login-form__btn-value").style.display = "block";
           }
         }
       });
