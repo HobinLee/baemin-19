@@ -6,11 +6,11 @@
     }
 }
 
-#spinner {
+.spinner {
     display: none;
 }
 
-#spinner > img {
+.spinner > img {
     width: 20px;
     filter: invert(98%) sepia(12%) saturate(78%) hue-rotate(137deg) brightness(114%) contrast(100%);
     animation: rotate 0.8s ease infinite;

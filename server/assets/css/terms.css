@@ -55,5 +55,25 @@
 }
 
 .age-check-box{
-    margin-bottom:100px;
+    margin-bottom:60px;
+}
+
+.age-check-box .radio-container {
+    background-color: var(--light-concept-color);
+    height: 100px;
+    overflow: hidden;
+}
+
+.age-check-box .radio-container:hover img {
+    transform: scale(1.1);
+}
+
+.age-check-box .checkmark {
+    top: 35px;
+}
+
+.age-check-box__img {
+    position: absolute;
+    height: 100%;
+    transition: 0.5s;
 }

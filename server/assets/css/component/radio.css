@@ -56,5 +56,4 @@ input[type="radio"]{
 .radio-container > img {
     position:absolute;
     right:0;
-    transform:rotate(180deg);
 }

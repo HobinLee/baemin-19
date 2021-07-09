@@ -26,12 +26,14 @@ const getHashedPassword = async (pw) => {
  */
 
 const SIGNUP_SUB_PATHS = ["/terms", "/phone", "/rest"];
+
 signupRouter.get(SIGNUP_SUB_PATHS, (req, res) => {
   if (req.session.user) {
     return res.redirect(TEMPORARY_REDIRECT_CODE, "/");
   }
-
-  const subPath = req.url.slice(1);
+  
+  const subPath = req.url.slice(1).split('?')[0];
+  
   res.render(`signup_${subPath}`, { title: PAGE_TITLE });
 });
 
@@ -40,16 +42,21 @@ signupRouter.get(SIGNUP_SUB_PATHS, (req, res) => {
  * DB에 hashing 된 password를 저장합니다.
  */
 signupRouter.post("/", async ({ body, session }, res) => {
-  session.user = body.userData;
+  try {
+    session.user = body.userData;
 
-  const { email, pw, ...rest } = body.userData;
-  const copiedDB = { ...DB };
-
-  const hashedPW = await getHashedPassword(pw);
-  copiedDB[email] = { ...rest, pw: hashedPW };
-
-  fs.writeFileSync("server/db/db.json", JSON.stringify(copiedDB));
-  res.json({ httpStatus: "OK" });
+    const { email, pw, ...rest } = body.userData;
+    const copiedDB = { ...DB };
+  
+    const hashedPW = await getHashedPassword(pw);
+    copiedDB[email] = { ...rest, pw: hashedPW };
+  
+    fs.writeFileSync("server/db/db.json", JSON.stringify(copiedDB));
+    res.json({ httpStatus: "OK" });
+  } catch (err) {
+    console.error(err);
+    res.json( { httpStatus: "FAILED", err })
+  }
 });
 
 module.exports = signupRouter;

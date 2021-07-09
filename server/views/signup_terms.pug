@@ -51,11 +51,13 @@ main.terms-page-layout
     p
       label.radio-container
         input#over-14(type='radio' checked=true)
+        img.age-check-box__img(src='../assets/icons/over14.png' alt='over14-img')
         label(for='over-14') 만 14세 이상입니다.
         span.checkmark
     p
       label.radio-container
         input#under-14(type='radio' checked=false)
+        img.age-check-box__img(src='../assets/icons/under14.png' alt='under14-img')
         label(for='under-14') 만 14세 미만입니다.
         span.checkmark
   a(href="/signup/phone").next-btn-link

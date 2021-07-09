@@ -245,27 +245,30 @@ import { hideLoadingSpinner, showLoadingSpinner } from "./utils/triggerSpinner.j
 
   const btnLoadingStart = ($btn) => {
     $btn.disabled = true;
-    $btn.innerText = '';
     $btn.style.opacity = 0.6;
     $btn.classList.add(LOADING_BTN);
-    //showLoadingSpinner();
+    $('span',$btn).style.display ='none';
+    showLoadingSpinner();
   }
 
   const btnLoadingFinish = ($btn) => {
     $btn.disabled = false;
-    $btn.innerText = '완료';
     $btn.style.opacity = 1;
+    $('span',$btn).style.display ='block';
     $btn.classList.remove(LOADING_BTN);
-    //hideLoadingSpinner();
+    hideLoadingSpinner();
   }
 
   const register = async (e) => {
+    e.preventDefault();
 
     btnLoadingStart($submitBTN);
 
-    e.preventDefault();
-
+  
     const { httpStatus } = await postSignUp(userData);
+    
+    console.log(httpStatus);
+
     if (httpStatus === "OK") {
       setTimeout(() => {
         window.location.href = "/";
