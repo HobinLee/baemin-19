@@ -11,7 +11,7 @@ const PAGE_TITLE = "대한민국 1등 배달앱, 배달의민족";
  */
 const checkPassword = async (email, pw) => {
   const result = bcrypt.compareSync(pw, DB[email].pw);
-
+  
   return result;
 };
 
@@ -34,18 +34,22 @@ authRouter.get("/", (req, res) => {
  * user info를 반환합니다.
  */
 authRouter.post("/login", async (req, res) => {
+  const WAIT_TIME = 1000;
   try {
     const {email, pw} = req.body;
     const isPWCorrect = await checkPassword(email, pw);
-    
-    if (isPWCorrect) {
-      const { password: pw, ...userInfo } = DB[email];
 
-      req.session.user = userInfo;
-      res.json({ user: userInfo });
-    } else {
-      res.json({ user: null });
-    }
+    // 알고리즘에 걸리는 시간 파악에 혼동을 주기 위해 몇 초 뒤에 결과를 반환하도록 했습니다.
+    setTimeout(() => {
+      if (isPWCorrect) {
+        const { password: pw, ...userInfo } = DB[email];
+  
+        req.session.user = userInfo;
+        res.json({ user: userInfo });
+      } else {
+        res.json({ user: null });
+      }
+    }, WAIT_TIME);
   } catch (err) {
     res.json({ user: null });
   }
